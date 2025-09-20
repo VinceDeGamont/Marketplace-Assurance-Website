@@ -5,13 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Histori Pembelian - AsuransiKita</title>
     <link rel="stylesheet" href="css/style.css">
+
+    <script>
+        // Auth Guard - Penjaga Halaman
+        const loggedInUser = sessionStorage.getItem('loggedInUser');
+        if (!loggedInUser) {
+            // Jika tidak ada data login, paksa kembali ke halaman login
+            alert('Anda harus login untuk mengakses halaman ini.');
+            window.location.href = 'login.html';
+        }
+    </script>
 </head>
 
 <body>
 
     <header>
         <nav>
-            <a href="index.html" class="logo">AsuransiKuis</a>
+            <a href="index.html" class="logo">VinceAssurance</a>
         </nav>
     </header>
 

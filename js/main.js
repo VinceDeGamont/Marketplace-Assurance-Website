@@ -203,7 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    // LOGIKA UNTUK HALAMAN HISTORI (history.html)
+    // logic untuk histori page
     const historyBody = document.getElementById('history-body');
     if (historyBody) {
         const history = JSON.parse(localStorage.getItem('purchaseHistory')) || [];
