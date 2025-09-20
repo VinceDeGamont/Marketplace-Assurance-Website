@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Product</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    
+    <header>
+        <nav>
+            <a href="index.html" class="logo">AsuransiKuis</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="checkout-container">
+            <h1>Konfirmasi Pembayaran</h1>
+            
+            <div class="summary">
+                <h2>Ringkasan Pembelian</h2>
+                <p>
+                    <strong>Produk:</strong> 
+                    <span id="product-name">Asuransi Mobil Premium</span> </p>
+                <p class="harga">
+                    <strong>Total Premi:</strong> 
+                    <span id="total-harga">Rp 0</span> </p>
+            </div>
+            
+            <div class="payment-method">
+                <h2>Pilih Metode Pembayaran</h2>
+                <div class="method-option">
+                    <input type="radio" id="va" name="payment" value="va" checked>
+                    <label for="va">Virtual Account</label>
+                </div>
+                <div class="method-option">
+                    <input type="radio" id="cc" name="payment" value="cc">
+                    <label for="cc">Kartu Kredit</label>
+                </div>
+                <div class="method-option">
+                    <input type="radio" id="wallet" name="payment" value="wallet">
+                    <label for="wallet">E-Wallet</label>
+                </div>
+            </div>
+
+            <button id="tombol-bayar" class="btn-primary btn-bayar">Bayar Sekarang</button>
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

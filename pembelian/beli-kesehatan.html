@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir - Asuransi Kesehatan</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    
+    <header>
+        <nav>
+            <a href="../index.html" class="logo">AsuransiKuis</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="product-detail-container">
+            <h1>Formulir Pembelian Asuransi Kesehatan</h1>
+            <p>Lengkapi data diri Anda untuk menghitung estimasi premi tahunan.</p>
+            
+            <form id="formAsuransiKesehatan" class="product-form">
+                <div class="input-group">
+                    <label for="namaLengkap">Nama Lengkap (sesuai KTP)</label>
+                    <input type="text" id="namaLengkap" required>
+                </div>
+                <div class="input-group">
+                    <label for="pekerjaan">Pekerjaan</label>
+                    <input type="text" id="pekerjaan" required>
+                </div>
+                <div class="input-group">
+                    <label for="tglLahir">Tanggal Lahir</label>
+                    <input type="date" id="tglLahir" required>
+                </div>
+                <div class="input-group">
+                    <label>Merokok?</label>
+                    <select id="merokok" required>
+                        <option value="0">Tidak</option>
+                        <option value="1">Ya</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Punya Riwayat Hipertensi?</label>
+                    <select id="hipertensi" required>
+                        <option value="0">Tidak</option>
+                        <option value="1">Ya</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Punya Riwayat Diabetes?</label>
+                    <select id="diabetes" required>
+                        <option value="0">Tidak</option>
+                        <option value="1">Ya</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-primary">Hitung Premi</button>
+            </form>
+
+            <div id="hasilPremi" class="hasil-premi" style="display:none;">
+                <h2>Estimasi Premi Anda</h2>
+                <p>Premi per tahun: <strong id="hargaPremiKesehatan"></strong></p>
+                <a href="../checkout.html" class="btn-primary">Checkout</a>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

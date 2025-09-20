@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir - Asuransi Jiwa</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    
+    <header>
+        <nav>
+            <a href="../index.html" class="logo">AsuransiKuis</a>
+        </nav>
+    </header>
+    
+    <main class="container">
+        <div class="product-detail-container">
+            <h1>Formulir Pembelian Asuransi Jiwa</h1>
+            <p>Isi data Anda untuk melihat estimasi premi bulanan.</p>
+            
+            <form id="formAsuransiJiwa" class="product-form">
+                <div class="input-group">
+                    <label for="namaLengkapJiwa">Nama Lengkap (sesuai KTP)</label>
+                    <input type="text" id="namaLengkapJiwa" required>
+                </div>
+                <div class="input-group">
+                    <label for="tglLahirJiwa">Tanggal Lahir</label>
+                    <input type="date" id="tglLahirJiwa" required>
+                </div>
+                <div class="input-group" style="grid-column: 1 / -1;">
+                    <label for="pertanggungan">Besaran Pertanggungan (Rp)</label>
+                    <select id="pertanggungan" required>
+                        <option value="1000000000">Rp 1.000.000.000</option>
+                        <option value="2000000000">Rp 2.000.000.000</option>
+                        <option value="3500000000">Rp 3.500.000.000</option>
+                        <option value="5000000000">Rp 5.000.000.000</option>
+                        <option value="10000000000">Rp 10.000.000.000</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-primary">Hitung Premi</button>
+            </form>
+            
+            <div id="hasilPremi" class="hasil-premi" style="display:none;">
+                <h2>Estimasi Premi Anda</h2>
+                <p>Premi per bulan: <strong id="hargaPremiJiwa"></strong></p>
+                <a href="../checkout.html" class="btn-primary">Checkout</a>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

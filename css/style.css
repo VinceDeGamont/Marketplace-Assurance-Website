@@ -1,0 +1,469 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bgBody: #f8f9fa;
+    --headerFontColor: #0056b3;
+    --buttonColor: #007bff;
+    --buttonInCardColor: #e9ecef;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bgBody);
+    color: black;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 2rem 1rem;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 1rem 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 1rem;
+}
+
+nav .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--headerFontColor);
+    text-decoration: none;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li {
+    margin-left: 1.5rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: grey;
+    font-weight: 500;
+    transition: color 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+    color: var(--headerFontColor);
+}
+
+
+/* button */
+.btn-primary {
+    background-color: var(--buttonColor);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: var(--headerFontColor);
+}
+
+.btn-secondary {
+    background-color: var(--buttonInCardColor);
+    color: black;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.btn-secondary:hover {
+    background-color: #ced4da;
+}
+
+
+/* home page */
+main h1 {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+}
+
+main > p {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+    color: grey;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.product-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    text-align: center;
+}
+
+.product-card h3 {
+    margin-bottom: 1rem;
+    color: var(--headerFontColor);
+}
+
+
+/* login & sign up page */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.auth-box {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.auth-box h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.input-group {
+    margin-bottom: 1.2rem;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.auth-box button {
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+.auth-link {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.error-message {
+    color: red;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    text-align: center;
+    display: none;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 3rem;
+    background: #e9ecef;
+}
+
+
+
+/* Style untuk product page */
+.product-detail-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    background: white;
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.product-detail-container h1 {
+    text-align: left;
+    font-size: 2rem;
+}
+
+.product-description {
+    margin: 1.5rem 0;
+    line-height: 1.8;
+    color: #555;
+}
+
+.product-detail-container h3 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.5rem;
+}
+
+.benefit-list {
+    list-style-position: inside;
+    margin-left: 5px;
+    margin-bottom: 2rem;
+}
+
+.benefit-list li {
+    margin-bottom: 0.75rem;
+}
+
+.cocok-untuk {
+    background-color: #f8f9fa;
+    border-left: 4px solid var(--buttonColor);
+    padding: 1rem 1.5rem;
+    margin: 2rem 0;
+    border-radius: 4px;
+}
+
+.cocok-untuk p {
+    margin: 0;
+}
+
+.btn-fullwidth {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 15px;
+}
+
+
+/* Styling untuk page pembelian */
+.product-detail-container p {
+    text-align: left;
+    margin-bottom: 2rem;
+    color: #666;
+}
+
+.product-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+/* Membuat form menjadi 2 kolom di layar lebar */
+@media (min-width: 768px) {
+    .product-form {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.product-form .input-group {
+    margin-bottom: 0;
+}
+
+.product-form select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.product-form button {
+    grid-column: 1 / -1; /* Tombol memenuhi lebar grid */
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+}
+
+.hasil-premi {
+    margin-top: 2.5rem;
+    padding: 2rem;
+    background-color: #e9f5ff;
+    border-left: 5px solid #007bff;
+    border-radius: 5px;
+}
+
+.hasil-premi h2 {
+    margin-bottom: 1rem;
+    color: #0056b3;
+}
+
+.hasil-premi p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+
+/* === STYLE UNTUK HALAMAN CHECKOUT === */
+
+.checkout-container {
+    max-width: 700px;
+    margin: 2rem auto;
+    background: #fff;
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.checkout-container h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.summary, .payment-method {
+    margin-bottom: 2rem;
+}
+
+.summary h2, .payment-method h2 {
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.summary p {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.summary .harga {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #0056b3;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+.method-option {
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+}
+
+.method-option:hover {
+    border-color: #007bff;
+}
+
+/* Style untuk opsi pembayaran yang dipilih */
+.method-option:has(input:checked) {
+    background-color: #e9f5ff;
+    border-color: #007bff;
+    font-weight: 500;
+}
+
+.method-option input {
+    margin-right: 15px;
+    transform: scale(1.2);
+}
+
+.btn-bayar {
+    width: 100%;
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 15px;
+    border: none;
+    cursor: pointer;
+}
+
+
+/* === STYLE UNTUK HALAMAN HISTORI === */
+.history-container {
+    max-width: 900px;
+    margin: 2rem auto;
+    background: #fff;
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.history-container h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* Membuat tabel responsif dengan scroll horizontal */
+.history-table-wrapper {
+    overflow-x: auto;
+}
+
+.history-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    min-width: 600px; /* Lebar minimum sebelum scroll muncul */
+}
+
+.history-table th, .history-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.history-table thead th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #333;
+}
+
+.history-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Styling untuk status pembayaran */
+.status {
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #fff;
+}
+
+.status.lunas {
+    background-color: #28a745; /* Hijau */
+}
+
+.status.belum-lunas {
+    background-color: #fd7e14; /* Oranye */
+}
