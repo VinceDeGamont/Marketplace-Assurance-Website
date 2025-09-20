@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
+html {
+    scroll-behavior: smooth;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -8,9 +12,10 @@
 
 :root {
     --bgBody: #f4f7f9;
-    --headerFontColor: #0056b3;
-    --buttonColor: #007bff;
-    --buttonInCardColor: #e9ecef;
+    --headerFontColor: #008b74;
+    --buttonColor: #008b74;
+    --buttonHoverColor: #00c2a8;
+    --buttonInCardColor: #e8fffa;
     --authIconColor: #a0aec0;
 }
 
@@ -33,13 +38,17 @@ header {
     background: rgba(255, 255, 255, 0.95);
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     padding: 1rem 0;
+    z-index: 1000; 
+    border-bottom: 1px solid #eef2f6; 
+    backdrop-filter: blur(100%); 
+    -webkit-backdrop-filter: blur(100%);
 }
 
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1100px;
+    max-width: 1500px;
     margin: auto;
     padding: 0 1rem;
 }
@@ -76,7 +85,7 @@ nav ul li a:hover {
 }
 
 nav ul li a.btn-primary:hover {
-    background-color: var(--headerFontColor);
+    background-color: var(--buttonHoverColor);
     transform: translateY (-2px);
 }
 
@@ -93,12 +102,13 @@ nav ul li a.btn-primary:hover {
 }
 
 .btn-primary:hover {
-    background-color: var(--headerFontColor);
+    background-color: var(--buttonHoverColor);
 }
 
 .btn-secondary {
     background-color: var(--buttonInCardColor);
-    color: black;
+    color: #008b74;
+    font-weight: 500;
     padding: 10px 20px;
     border-radius: 5px;
     text-decoration: none;
@@ -108,7 +118,8 @@ nav ul li a.btn-primary:hover {
 }
 
 .btn-secondary:hover {
-    background-color: #ced4da;
+    background-color: #d1fff5;
+    color: #008b74;
 }
 
 
@@ -128,18 +139,18 @@ main > p {
 
 .hero {
     text-align: center;
-    /* padding: 4rem 1rem; */
     background-color: white;
+    padding: 6rem 2rem;
     border-radius: 12px;
     margin-bottom: 4rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04), 0 10px 20px rgba(0, 0, 0, 0.05);
     border: 1px solid #eef2f6;
-
-    position: relative; /* Diperlukan untuk overlay */
-    background-image: linear-gradient(rgba(0, 50, 100, 0.6), rgba(0, 20, 50, 0.6)), url(https://images.unsplash.com/photo-1556742517-8e62243e8a4a?q=80&w=2070&auto=format&fit=crop);
+    
+    background-image: linear-gradient(rgba(0, 50, 100, 0.6), rgba(0, 20, 50, 0.6)), url('../img/hero-bg.jpg');
     background-size: cover;
-    background-position: center;
-    padding: 6rem 2rem;
+    background-position: center; 
+    color: white; 
+    position: relative; 
     overflow: hidden;
 }
 
@@ -157,16 +168,16 @@ main > p {
 .hero p {
     font-size: 1.2rem;
     color: #555;
-    max-width: 600px;
+    max-width: 900px;
+    text-align: center;
     margin-left: auto;
     margin-right: auto;
-
     opacity: 0.9;
 }
 
 .hero h1, .hero p {
-    color: #ffffff;
-    position: relative; /* Agar teks berada di atas overlay */
+    color: white;
+    position: relative; /* agar teks berada di atas overlay */
     z-index: 2;
 }
 
@@ -215,10 +226,10 @@ main > p {
 }
 
 .card-icon {
-    font-size: 3rem; /* Ukuran ikon diperbesar */
-    color: var(--buttonColor); /* Warna ikon mengikuti warna primer */
+    font-size: 3rem;
+    color: var(--buttonColor); 
     margin-bottom: 1.5rem;
-    background-color: #e9f5ff;
+    background-color: var(--buttonInCardColor);
     width: 80px;
     height: 80px;
     border-radius: 50%;
@@ -252,7 +263,7 @@ main > p {
     align-items: center;
     min-height: 100vh;
     padding: 2rem 1rem;
-    background-image: radial-gradient(circle, #f4f7f9, #f4f7f9, #f4f7f9, #f4f7f9, #f4f7f9, #e8f3f9, #dbeff8, #ceebf7, #ade3f1, #88dbe7, #5ed3d8, #29cbc4);
+    background-image: radial-gradient(circle, #f4f7f9, #f4f7f9, #f4f7f9, #f4f7f9, #f4f7f9, #e3edf3, #d1e4ec, #bfdbe4, #94c7cf, #69b4b6, #3ca097, #008b74);
 }
 
 .auth-box {
@@ -372,28 +383,163 @@ main > p {
     cursor: default;
 }
 
-footer {
-    padding: 3rem 1rem;
-    text-align: center;
-    padding: 2rem 0;
-    margin-top: 5rem;
-    background: #e9ecef;
+/* styling section Keunggulan Layanan */
+.features-section {
+    padding: 4rem 0;
 }
 
-footer p {
+.features-section h2, .testimonials-section h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    color: #2c3e50;
+    margin-bottom: 3rem;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.feature-card {
+    background-color: white;
+    padding: 2.5rem 2rem;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid #eef2f6;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    color: var(--buttonColor);
+    margin-bottom: 1.5rem;
+}
+
+.feature-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+    color: #333;
+}
+
+.feature-card p {
+    color: #666;
     font-size: 0.95rem;
 }
 
+/* section testimoni */
+.testimonials-section {
+    padding: 4rem 0;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.testimonial-card {
+    padding: 2rem;
+    border: 1px solid #eef2f6;
+    border-radius: 12px;
+    background-color: white;
+}
+
+.testimonial-card .quote {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.testimonial-card cite {
+    font-weight: 600;
+    color: var(--headerFontColor);
+    font-style: normal;
+}
 
 
-/* Style untuk product page */
+/* footer */
+footer {
+    background-color: #004d40;
+    color: #bdc3c7;
+    padding-top: 4rem;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding-bottom: 3rem;
+}
+
+.footer-about .logo {
+    font-size: 1.8rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.footer-about p, .footer-links ul, .footer-contact ul {
+    font-size: 0.95rem;
+}
+
+.footer-links h4, .footer-contact h4 {
+    font-size: 1.1rem;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+}
+
+.footer-links ul, .footer-contact ul {
+    list-style: none;
+}
+
+.footer-links li, .footer-contact li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-links a {
+    color: #bdc3c7;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+.footer-contact i {
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+    color: #4ffbdf;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 1.5rem 0;
+    border-top: 1px solid #3e5164;
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+
+/* styling untuk product page */
 .product-detail-container {
-    max-width: 800px;
+    max-width: 1000px;
     margin: 2rem auto;
     background: white;
     padding: 2.5rem;
     border-radius: 8px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    overflow: hidden;
 }
 
 .product-detail-container h1 {
@@ -445,7 +591,7 @@ footer p {
 }
 
 
-/* Styling untuk page pembelian */
+/* styling untuk page pembelian */
 .product-detail-container p {
     text-align: left;
     margin-bottom: 2rem;
@@ -455,10 +601,11 @@ footer p {
 .product-form {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1rem;
+    row-gap: 1.5rem;
+    column-gap: 2rem;
 }
 
-/* Membuat form menjadi 2 kolom di layar lebar */
+/* buat form menjadi 2 kolom di layar lebar */
 @media (min-width: 768px) {
     .product-form {
         grid-template-columns: 1fr 1fr;
@@ -468,6 +615,60 @@ footer p {
 .product-form .input-group {
     margin-bottom: 0;
 }
+
+.form-section-title {
+    grid-column: 1 / -1; /* supaya judul memenuhi lebar grid */
+    margin-top: 1.5rem;
+    margin-bottom: 0;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eef2f6;
+    font-weight: 600;
+    color: #2c3e50;
+    font-size: 1.2rem;
+}
+
+
+.file-input-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.custom-file-input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.custom-file-label {
+    padding: 10px 15px;
+    background-color: var(--buttonInCardColor);
+    color: #333;
+    border: 1px solid #dde5ed;
+    border-radius: 8px;
+    font-weight: 500;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.custom-file-input:hover + .custom-file-label {
+    background-color: #dde5ed;
+}
+
+.file-name {
+    margin-left: 15px;
+    font-size: 0.9rem;
+    color: #555;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 
 .product-form select {
     width: 100%;
@@ -479,7 +680,7 @@ footer p {
 }
 
 .product-form button {
-    grid-column: 1 / -1; /* Tombol memenuhi lebar grid */
+    grid-column: 1 / -1; 
     border: none;
     cursor: pointer;
     font-size: 1.1rem;
@@ -586,7 +787,7 @@ footer p {
 
 /* styling untuk histori page */
 .history-container {
-    max-width: 900px;
+    max-width: 1300px;
     margin: 2rem auto;
     background: #fff;
     padding: 2.5rem;

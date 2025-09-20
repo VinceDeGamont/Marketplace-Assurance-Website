@@ -7,10 +7,10 @@
     <link rel="stylesheet" href="css/style.css">
 
     <script>
-        // Auth Guard - Penjaga Halaman
+        // auth guard
         const loggedInUser = sessionStorage.getItem('loggedInUser');
         if (!loggedInUser) {
-            // Jika tidak ada data login, paksa kembali ke halaman login
+            // kalau tidak ada data login, paksa balik ke login page
             alert('Anda harus login untuk mengakses halaman ini.');
             window.location.href = 'login.html';
         }
@@ -30,24 +30,28 @@
             <h1>Histori Pembelian Anda</h1>
             
             <div class="history-table-wrapper">
+
                 <table class="history-table">
+                    
                     <thead>
                         <tr>
                             <th>Nama Produk</th>
                             <th>Jenis Asuransi</th>
                             <th>Tanggal Pembelian</th>
                             <th>Harga Premi</th>
+                            <th>Metode Pembayran</th>
                             <th>Status</th>
                         </tr>
                     </thead>
-                    <tbody id="history-body">
-                        </tbody>
+
+                    <tbody id="history-body"> </tbody>
+
                 </table>
+
             </div>
         </div>
     </main>     
 
     <script src="js/main.js"></script>
-    
 </body>
 </html>

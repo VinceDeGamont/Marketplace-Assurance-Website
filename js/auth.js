@@ -28,9 +28,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (loggedInUser && navLinks) {
         // jika ada user yang loign, ubah nav button
         navLinks.innerHTML = `
-            <li class="nav-greeting">Hi, ${loggedInUser.fullName.split(' ')[0]}</li>
+            <li class="nav-greeting">Hello 👋, ${loggedInUser.fullName.split(' ')[0]}</li>
             <li><a href="histori.html">Histori</a></li>
-            <li><a href="#" id="logoutButton" class="btn-primary">Logout</a></li>
+            <li><a href="#" id="logoutButton" class="btn-primary">LogOut</a></li>
         `;
 
         // aturan untuk tombol logOut
@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 setSuccess(password);
             }
 
-            // validasi  comfirm password
+            // validasi comfirm password
             if (confirmPasswordValue === '') {
                 setError(confirmPassword, 'Konfirmasi kata sandi harus diisi.'); isValid = false;
             } else if (passwordValue !== confirmPasswordValue) {
@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
         signupForm.addEventListener('submit', (e) => {
             e.preventDefault();
             if (validateInputs()) {
-                // Jika semua validasi lolos:
+                // jika semua validasi lolos:
                 const users = JSON.parse(localStorage.getItem('users')) || [];
                 const emailValue = email.value.trim();
                 if (users.find(user => user.email === emailValue)) {
@@ -160,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
         
-        // Menambahkan event listener untuk validasi saat pengguna mengetik/meninggalkan input
+        // event listener untuk validasi saat pengguna mengetik/meninggalkan input
         [fullName, phone, email, password, confirmPassword].forEach(input => {
             input.addEventListener('input', validateInputs);
         });
@@ -211,7 +211,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
         
-        // apply
         [email, password].forEach(input => {
             input.addEventListener('input', validateLoginInputs);
         });

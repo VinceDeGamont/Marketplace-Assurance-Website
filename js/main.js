@@ -161,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //logic untuk checkout page
     const tombolBayar = document.getElementById('tombol-bayar');
     if (tombolBayar) {
-        // 1. Ambil data dari localStorage dan tampilkan di halaman
+        // ambil data dari localStorage dan tampilkan di halaman
         const itemToCheckout = JSON.parse(localStorage.getItem('checkoutItem'));
         
         if (itemToCheckout) {
@@ -169,31 +169,36 @@ document.addEventListener('DOMContentLoaded', () => {
             const hargaText = `${formatRupiah(itemToCheckout.price)} / ${itemToCheckout.period}`;
             document.getElementById('total-harga').textContent = hargaText;
         } else {
-            // Jika tidak ada item, tampilkan pesan
+            
             document.querySelector('.checkout-container').innerHTML = '<h1>Tidak ada item untuk di-checkout.</h1><p>Silakan pilih produk terlebih dahulu.</p>';
         }
 
-        // 2. Tambahkan event listener untuk tombol bayar
+        // event listener untuk tombol bayar
         tombolBayar.addEventListener('click', () => {
             if (itemToCheckout) {
-                // Ambil histori yang sudah ada, atau buat array baru jika belum ada
+                // ambil histori yang sudah ada, atau buat array baru jika belum ada
                 let history = JSON.parse(localStorage.getItem('purchaseHistory')) || [];
 
-                // Tambahkan item baru ke histori
+                // ambil metode pembayaran yang dipilih user
+                const paymentMethodInput = document.querySelector('input[name="payment"]:checked');
+                const paymentMethod = paymentMethodInput ? paymentMethodInput.nextElementSibling.textContent : 'Tidak Diketahui';
+
+                // tambah item baru ke histori
                 const historyItem = {
                     ...itemToCheckout,
                     purchaseDate: new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' }),
-                    status: 'Lunas'
+                    status: 'Lunas',
+                    paymentMethod: paymentMethod
                 };
-                history.unshift(historyItem); // unshift() agar data terbaru di atas
+                history.unshift(historyItem); // agar data terbaru di atas
 
-                // Simpan kembali ke localStorage
+                // simpan kembali ke localStorage
                 localStorage.setItem('purchaseHistory', JSON.stringify(history));
 
-                // Hapus item dari checkout agar tidak diproses lagi
+                // hapus item dari checkout agar tidak diproses lagi jika sudah selesai
                 localStorage.removeItem('checkoutItem');
 
-                // Tampilkan notifikasi dan arahkan ke halaman histori
+                // tampilkan notifikasi dan arahkan ke histori page
                 alert('Pembayaran berhasil!');
                 window.location.href = 'histori.html';
             } else {
@@ -209,10 +214,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const history = JSON.parse(localStorage.getItem('purchaseHistory')) || [];
 
         if (history.length > 0) {
-            // Kosongkan dulu isi tabel contoh
+            // kosongkan dulu isi tabel
             historyBody.innerHTML = '';
 
-            // Loop data histori dan buat baris tabel untuk masing-masing
+            // loop data histori dan buat baris tabel untuk masing-masing value
             history.forEach(item => {
                 const row = document.createElement('tr');
                 
@@ -223,15 +228,33 @@ document.addEventListener('DOMContentLoaded', () => {
                     <td>${item.type}</td>
                     <td>${item.purchaseDate}</td>
                     <td>${formatRupiah(item.price)} / ${item.period}</td>
+                    <td>${item.paymentMethod || 'N/A'}</td>
                     <td><span class="status ${statusClass}">${item.status}</span></td>
                 `;
 
                 historyBody.appendChild(row);
             });
         } else {
-            // Jika histori kosong
+            // kalau histori kosong
             historyBody.innerHTML = '<tr><td colspan="5" style="text-align:center;">Belum ada riwayat pembelian.</td></tr>';
         }
     }
-    
+
+    // munculkan preview dari file yg di upload pada page formulir pembelian
+    const customFileInputs = document.querySelectorAll('.custom-file-input'); 
+    customFileInputs.forEach(input => {
+        input.addEventListener('change', function() {
+            // ambil elemen span untuk nama file yang sesuai
+            const fileNameSpan = this.parentElement.querySelector('.file-name');
+            
+            if (this.files.length > 0) {
+                // kalau ada file yang dipilih, tampilkan namanya
+                fileNameSpan.textContent = this.files[0].name;
+            } else {
+                // kalau ga ada file (misal, user menekan cancel), kosongkan teks
+                fileNameSpan.textContent = '';
+            }
+        });
+    });
+
 });

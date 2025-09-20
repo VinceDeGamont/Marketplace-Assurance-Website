@@ -21,63 +21,114 @@
             <p>Silakan lengkapi semua data di bawah ini untuk melanjutkan.</p>
             
             <form id="formAsuransiMobil" class="product-form">
+
                 <div class="input-group">
                     <label for="merkMobil">Merk Mobil</label>
                     <input type="text" id="merkMobil" placeholder="Contoh: Toyota" required>
                 </div>
+
                 <div class="input-group">
                     <label for="jenisMobil">Jenis Mobil</label>
                     <input type="text" id="jenisMobil" placeholder="Contoh: Avanza" required>
                 </div>
+
                 <div class="input-group">
                     <label for="tahunMobil">Tahun Pembuatan</label>
                     <input type="number" id="tahunMobil" placeholder="Contoh: 2022" required>
                 </div>
+
                 <div class="input-group">
                     <label for="hargaMobil">Harga Mobil (Rp)</label>
                     <input type="number" id="hargaMobil" placeholder="Contoh: 250000000" required>
                 </div>
+                
                 <div class="input-group">
                     <label for="platMobil">Nomor Plat Mobil</label>
                     <input type="text" id="platMobil" placeholder="Contoh: B 1234 ABC" required>
                 </div>
+
                 <div class="input-group">
                     <label for="namaPemilik">Nama Pemilik</label>
                     <input type="text" id="namaPemilik" placeholder="Sesuai STNK" required>
                 </div>
+                
                 <div class="input-group">
                     <label for="nomorMesin">Nomor Mesin</label>
                     <input type="text" id="nomorMesin" required>
                 </div>
+
                 <div class="input-group">
                     <label for="nomorRangka">Nomor Rangka</label>
                     <input type="text" id="nomorRangka" required>
                 </div>
 
+
                 <h3 class="form-section-title">Unggah Foto Kendaraan</h3>
+
                 <div class="input-group">
+
                     <label for="fotoDepan">Tampak Depan</label>
-                    <input type="file" id="fotoDepan" required>
+                    <div class="file-input-wrapper">
+                        <input type="file" id="fotoDepan" class="custom-file-input" required>
+                        <label for="fotoDepan" class="custom-file-label">Pilih File</label>
+                        <span class="file-name"></span>
+                    </div>
+
                 </div>
+
                 <div class="input-group">
+
                     <label for="fotoBelakang">Tampak Belakang</label>
-                    <input type="file" id="fotoBelakang" required>
+                    <div class="file-input-wrapper">
+                        <input type="file" id="fotoBelakang" class="custom-file-input" required>
+                        <label for="fotoBelakang" class="custom-file-label">Pilih File</label>
+                        <span class="file-name"></span>
+                    </div>
+
                 </div>
-                 <div class="input-group">
+
+                <div class="input-group">
+
                     <label for="fotoKiri">Tampak Kiri</label>
-                    <input type="file" id="fotoKiri" required>
+                    <div class="file-input-wrapper">
+                        <input type="file" id="fotoKiri" class="custom-file-input" required>
+                        <label for="fotoKiri" class="custom-file-label">Pilih File</label>
+                        <span class="file-name"></span>
+                    </div>
+
                 </div>
+                
                 <div class="input-group">
+
                     <label for="fotoKanan">Tampak Kanan</label>
-                    <input type="file" id="fotoKanan" required>
+                    <div class="file-input-wrapper">
+                        <input type="file" id="fotoKanan" class="custom-file-input" required>
+                        <label for="fotoKanan" class="custom-file-label">Pilih File</label>
+                        <span class="file-name"></span>
+                    </div>
+
                 </div>
+
                 <div class="input-group">
+
                     <label for="fotoDashboard">Dashboard</label>
-                    <input type="file" id="fotoDashboard" required>
+                    <div class="file-input-wrapper">
+                        <input type="file" id="fotoDashboard" class="custom-file-input" required>
+                        <label for="fotoDashboard" class="custom-file-label">Pilih File</label>
+                        <span class="file-name"></span>
+                    </div>
+
                 </div>
+
                 <div class="input-group">
+
                     <label for="fotoMesin">Mesin</label>
-                    <input type="file" id="fotoMesin" required>
+                    <div class="file-input-wrapper">
+                        <input type="file" id="fotoMesin" class="custom-file-input" required>
+                        <label for="fotoMesin" class="custom-file-label">Pilih File</label>
+                        <span class="file-name"></span>
+                    </div>
+
                 </div>
                 
                 <button type="submit" class="btn-primary">Hitung Premi</button>
@@ -88,6 +139,7 @@
                 <p>Premi per tahun: <strong id="hargaPremiMobil"></strong></p>
                 <a href="../checkout.html" class="btn-primary">Checkout</a>
             </div>
+            
         </div>
     </main>
 

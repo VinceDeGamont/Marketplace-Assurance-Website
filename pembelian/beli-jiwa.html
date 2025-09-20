@@ -25,10 +25,12 @@
                     <label for="namaLengkapJiwa">Nama Lengkap (sesuai KTP)</label>
                     <input type="text" id="namaLengkapJiwa" required>
                 </div>
+
                 <div class="input-group">
                     <label for="tglLahirJiwa">Tanggal Lahir</label>
                     <input type="date" id="tglLahirJiwa" required>
                 </div>
+
                 <div class="input-group" style="grid-column: 1 / -1;">
                     <label for="pertanggungan">Besaran Pertanggungan (Rp)</label>
                     <select id="pertanggungan" required>
@@ -39,6 +41,7 @@
                         <option value="10000000000">Rp 10.000.000.000</option>
                     </select>
                 </div>
+                
                 <button type="submit" class="btn-primary">Hitung Premi</button>
             </form>
             
@@ -47,6 +50,7 @@
                 <p>Premi per bulan: <strong id="hargaPremiJiwa"></strong></p>
                 <a href="../checkout.html" class="btn-primary">Checkout</a>
             </div>
+            
         </div>
     </main>
 
