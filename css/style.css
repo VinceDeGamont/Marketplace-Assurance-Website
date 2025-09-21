@@ -35,13 +35,13 @@ body {
 header {
     position: sticky;
     top: 0;
-    background: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     padding: 1rem 0;
     z-index: 1000; 
     border-bottom: 1px solid #eef2f6; 
-    backdrop-filter: blur(100%); 
-    -webkit-backdrop-filter: blur(100%);
+    backdrop-filter: blur(8px); 
+    -webkit-backdrop-filter: blur(8px);
 }
 
 nav {
@@ -49,6 +49,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     max-width: 1500px;
+    width: 100%;
     margin: auto;
     padding: 0 1rem;
 }
@@ -87,6 +88,22 @@ nav ul li a:hover {
 nav ul li a.btn-primary:hover {
     background-color: var(--buttonHoverColor);
     transform: translateY (-2px);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    flex: 1; /* Memberi ruang yang fleksibel */
+}
+
+#nav-right {
+    justify-content: flex-end;
+}
+
+.nav-logo-center {
+    flex: 1.5; /* Beri ruang lebih agar benar-benar di tengah */
+    text-align: center;
 }
 
 
@@ -142,7 +159,7 @@ main > p {
     background-color: white;
     padding: 6rem 2rem;
     border-radius: 12px;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04), 0 10px 20px rgba(0, 0, 0, 0.05);
     border: 1px solid #eef2f6;
     
@@ -172,6 +189,7 @@ main > p {
     text-align: center;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 2rem;
     opacity: 0.9;
 }
 
@@ -184,6 +202,18 @@ main > p {
 .hero h1 {
     font-size: 3.2rem;
     text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.btn-hero {
+    margin: 1.5rem;
+    padding: 14px 28px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border-radius: 8px;
+}
+
+.product-section {
+    padding: 1rem 0rem 1rem;
 }
 
 .product-grid {
@@ -385,14 +415,15 @@ main > p {
 
 /* styling section Keunggulan Layanan */
 .features-section {
-    padding: 4rem 0;
+    padding: 1rem 0rem 4rem;
 }
 
-.features-section h2, .testimonials-section h2 {
+.features-section h2, .testimonials-section h2, .product-section h2{
     text-align: center;
     font-size: 2.2rem;
     color: #2c3e50;
     margin-bottom: 3rem;
+    margin-bottom: 1.8rem;
 }
 
 .features-grid {
@@ -412,7 +443,7 @@ main > p {
 
 .feature-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 10px 25px rgba(44, 62, 80, 0.1);
 }
 
 .feature-icon {
@@ -445,9 +476,12 @@ main > p {
 
 .testimonial-card {
     padding: 2rem;
+    border-radius: 12px;
     border: 1px solid #eef2f6;
     border-radius: 12px;
     background-color: white;
+    border-top: 4px solid var(--buttonColor);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04);
 }
 
 .testimonial-card .quote {

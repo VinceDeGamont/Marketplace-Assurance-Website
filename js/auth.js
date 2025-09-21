@@ -22,15 +22,21 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     
 
-    const navLinks = document.getElementById('main-nav-links');
+    const navLeft = document.getElementById('nav-left');
+    const navRight = document.getElementById('nav-right');
     const loggedInUser = JSON.parse(sessionStorage.getItem('loggedInUser'));
 
-    if (loggedInUser && navLinks) {
-        // jika ada user yang loign, ubah nav button
-        navLinks.innerHTML = `
-            <li class="nav-greeting">Hello 👋, ${loggedInUser.fullName.split(' ')[0]}</li>
+    if (loggedInUser && navRight && navLeft) {
+        // jika ada user yang login
+        // sebelah kiri
+        navLeft.innerHTML = `
             <li><a href="histori.html">Histori</a></li>
-            <li><a href="#" id="logoutButton" class="btn-primary">LogOut</a></li>
+            <li class="nav-greeting">Hello 👋, ${loggedInUser.fullName.split(' ')[0]}</li>
+        `;
+
+        // sebelah kanan
+        navRight.innerHTML = `
+            <li><a href="#" id="logoutButton" class="btn-primary">Logout</a></li>
         `;
 
         // aturan untuk tombol logOut
@@ -45,9 +51,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 window.location.href = 'index.html';
             });
         }
-    } else if (navLinks) {
-        // tampilan ketika user belum login
-        navLinks.innerHTML = `
+    } else if (navLeft && navRight) {
+        // jika user belum login
+        // sebelah kiri
+        navLeft.innerHTML = `
+            <li><a href="histori.html">Histori</a></li>
+        `;
+        // sebelah kanan
+        navRight.innerHTML = `
             <li><a href="login.html">Login</a></li>
             <li><a href="signup.html" class="btn-primary">Sign Up</a></li>
         `;
