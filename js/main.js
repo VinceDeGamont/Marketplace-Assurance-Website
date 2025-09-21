@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const hargaMobil = parseFloat(document.getElementById('hargaMobil').value);
             const tahunMobil = parseInt(document.getElementById('tahunMobil').value);
             
-            // Validasi sederhana: pastikan harga dan tahun diisi
+            // pastikan harga dan tahun diisi
             if (isNaN(hargaMobil) || isNaN(tahunMobil)) {
                 alert('Harga mobil dan tahun pembuatan harus diisi dengan angka.');
                 return;
